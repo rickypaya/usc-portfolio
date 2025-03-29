@@ -180,7 +180,6 @@ pointLight.position.set(0, 1, 3);
 pointLight.castShadow = true;
 scene.add(pointLight);
 
-
 //action!
 function basicAnimate() {
     renderer.render(scene, camera);
