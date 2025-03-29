@@ -51,7 +51,7 @@ nav a:hover {
 
 #Gallery .card {
     height: 33vh;
-    width: 50vw;
+    width: 80%;
     margin: 10px auto;
 }
 #Gallery .info {
