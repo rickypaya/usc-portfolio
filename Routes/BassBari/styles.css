@@ -1,13 +1,7 @@
-
-@font-face {
-    font-family: "NeueHaasRegular";
-    src: url('./fonts/NeueHaasDisplayRoman.ttf');
-}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "NeueHaasRegular";
     text-transform: uppercase;
 }
 
