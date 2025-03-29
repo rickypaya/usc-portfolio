@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance </title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+          }
+        }
+      </script>
+</head>
+<body>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="./main.js"></script>
+    <div id="three-container"></div>
+    <div id="menu">
+        <nav>
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="off-screen-menu">
+            <ul>
+                <li><a id="home-link" href="#home">home</a></li>
+                <li><a id="bio-link" href="#bio">bio</a></li>
+                <li><a id="watcg-link" href="#watch">watch</a></li>
+                <li><a id="schedule-link" href="#schedule">schedule</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="home" class="container">
+        <div class="card">
+            <h1>Welcome to Michael's Stage</h1>
+            <h2>A digital performer portfolio for rising talent in NYC.</h2>
+            <p>
+                This innovative portfolio is designed to showcase the talents of rising performers in a dynamic and immersive 3D environment. Whether you're here to explore the latest in virtual performance or to discover fresh talent, Miacheal's Stage offers a unique experience that blends creativity and technology. Use the WASD keys or the navigation menu to move through the site and explore the vibrant world of digital artistry. Every corner of this platform is crafted to highlight the skills and creativity of performers, providing a stage where talent meets innovation.
+            </p><p>
+                This project is the result of a collaborative effort to push the boundaries of how performers can present their work online. By combining my experience in 3D design and development, we’ve created the site you see before you. The pages are built entirely with pure HTML and CSS, ensuring a clean and responsive design, while the 3D elements are powered by the vanilla Three.js library and meticulously crafted using advanced modeling software. Together, these tools bring the performances to life in a way that is both engaging and accessible, offering a glimpse into the future of digital entertainment. Dive in and experience the next evolution of performance art at Miacheal's Stage.
+            </p>
+        </div>
+    </div>
+    <div id="bio" class="container">
+        <div id="bio-card" class="card">
+            <h1>Bio Div</h1>
+        </div>
+    </div>
+    <div id="watch" class="container">
+        <div class="card">
+            <h1>Watch Div</h1>
+        </div>
+    </div>
+    <div id="schedule" class="container">
+        <div class="card">
+            <h1>Schedule Div</h1>
+        </div>
+    </div>
+</body>
+</html>
