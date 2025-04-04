@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Performance </title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap" rel="stylesheet">
     <script type="importmap">
         {
           "imports": {
@@ -20,83 +23,200 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script type="module" src="./main.js"></script>
     <div id="three-container"></div>
-    <div id="menu">
-        <nav>
-            <div class="ham-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <div class="off-screen-menu">
-            <ul>
-                <li><a id="home-link" href="#home">home</a></li>
-                <li><a id="bio-link" href="#bio">bio</a></li>
-                <li><a id="watcg-link" href="#watch">watch</a></li>
-                <li><a id="schedule-link" href="#schedule">schedule</a></li>
+
+    <nav>
+        <h1>Michael's Stage</h1>
+        <img src="./assets/dots-icon.svg" id="nav-button" alt="">
+    </nav>
+    <div class="off-screen-menu">
+        <ul>
+            <li><a href="#Hero">Home</a></li>
+            <li><a href="#Biography">About</a></li>
+            <li><a href="#Performances">Performances</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div id="Hero" class="content">
+        <table id="wrapper">
+            <tr>
+                <td>
+                    <img src="./assets/michael-stage-intro.png" id="Hero-img" alt="">
+                </td>
+            </tr>
+        </table>
+        <h2>PRESENTS</h2>
+        <h1 id="Title">Michael Leyte-Vidal</h1>
+        <hr>
+        <ul>
+            <li>Performer</li>
+            <li>Vocalist</li>
+            <li>Coach</li>
+        </ul>
+        <p>Classical singer pursuing Broadway theater, bringing characters to life on stage.</p>
+        <div class="buttons">
+            <a href="#Performances" class="yellow button" id="view-btn">View Performances</a>
+            <a href="#Contact" class="yellow-border button" id="contact-btn">Schedule Coaching</a>
+        </div>
+    </div>
+
+    <div id="Biography" class="content">
+        <img src="./assets/headshot.jpg" id="Headshot" alt="">
+        <div id="bio-text">
+            <h1>Biography</h1>
+            <p>Miami-native Michael Leyte-Vidal is a dynamic and versatile vocalist whose artistry effortlessly bridges genres, from the grandeur of opera to the electric energy of Broadway. A classically trained Bass/Baritone with a flair for riffs, runs, and improvisation, Michael brings both technical precision and charismatic stage presence to every performance. His formal training allowed him to hone his craft through an operatic residency. Now, with his sights set on Broadway, Michael combines his rich vocal prowess, theatrical expertise, and infectious charm to captivate audiences.</p>
+            
+            <p>Beyond the stage, he shares his passion as a vocal coach, offering guidance to aspiring singers. Explore his journey through past performances—and discover a voice that resonates with power, versatility, and undeniable artistry.</p>
+
+            <h2>Educaiton</h2>
+            <ul id="Education">
+                <li>
+                    <p><strong>Master of Music in Classical Voice</strong></p>
+                    <p class="grey">Manhattan School of Music</p>
+                </li>
+                <li>
+                    <p><strong>Bachelor of Arts in Theater</strong></p>
+                    <p class="grey">Florida State University</p>
+                </li>
             </ul>
         </div>
     </div>
-    <div id="home" class="container">
-        <div class="card">
-            <h1>Welcome to Michael's Stage</h1>
-            <h2>A digital performer portfolio for rising talent in NYC.</h2>
-            <p>
-                This innovative portfolio is designed to showcase the talents of rising performers in a dynamic environment.
-            </p>
-        </div>
-    </div>
-    <div id="bio" class="container">
-        <div id="bio-card" class="card">
-            <div class="top">
-                <div class="left">
-                    <img src="../../assets/looking-up.png" alt="">
-                </div>
-                <div class="right">
-                    <h1>Artist's Bio</h1>
-                    <p>Miami-native Michael Leyte-Vidal is a dynamic and versatile vocalist whose artistry effortlessly bridges genres, from the grandeur of opera to the electric energy of Broadway. A classically trained*Bass/Baritone with a flair for riffs, runs, and improvisation, Michael brings both technical precision and charismatic stage presence to every performance. His formal training includes a BA in Theater and a Master of Music in Classical Voice, where he honed his craft through an operatic residency. Now, with his sights set on Broadway, Michael combines his rich vocal prowess, theatrical expertise, and infectious charm to captivate audiences. Beyond the stage, he shares his passion as a vocal coach, offering guidance to aspiring singers. Explore his journey through past performances—and discover a voice that resonates with power, versatility, and undeniable artistry.</p>
-                </div>
-            </div>
-            <div class="bottom">
-                <div class="edu-item">
-                    <h2>Bachelor of Arts in Theater</h2>
-                    <h3>Florida State University</h3>
-                </div>
-                <div class="edu-item">
-                    <h2>Master of Music in Classical Voice</h2>
-                    <h3>Manhattan School of Music</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="gallery" class="container">
-        <div class="card">
-            <h1>Gallery</h1>
 
+    <div id="Performances" class="content">
+        <div id="Gallery">
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Naked with Katerina McCrimmon</h3>
+                    <h4>Joe's Pub - New York City</h4>
+                </div>
+                <img src="./assets/Naked-w-kat.jpg" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>The Visit - Mayor</h3>
+                    <h4>Columbia University</h4>
+                </div>
+                <img src="./assets/The-visit.JPG" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Die Zauberflöte - Sarastro</h3>
+                    <h4>Hawaii Performing Arts Festival</h4>
+                </div>
+                <img src="./assets/Die-Zauberflote.png" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Pirates of Penzance - Sergeant</h3>
+                    <h4>Opera Colorado</h4>
+                </div>
+                <img src="./assets/Pirates-of-Penzance.jpg" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>I Capuleti e i Montecchi - Capellio</h3>
+                    <h4>Teatro Nuovo</h4>
+                </div>
+                <img src="./assets/Capuleti.png" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Holiday Concert - Lyric Arts Collective</h3>
+                    <h4>Don't Tell Mama - New York City</h4>
+                </div>
+                <img src="./assets/Christmas-solo.png" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Artist In Residence Series with Lisette Oropesa</h3>
+                    <h4>Bel Canto Bootcamp at Guild Hall</h4>
+                </div>
+                <img src="./assets/belcanto.jpg" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Don Giovanni - Commendatore</h3>
+                    <h4>Opera Colorado</h4>
+                </div>
+                <img src="./assets/Don-Giovanni.png" class="gallery-img" alt="">
+            </div>
+            <div class="image-container">
+                <div class="image-info">
+                    <h3>Turnadot - Mandarino</h3>
+                    <h4>Opera Colorado</h4>
+                </div>
+                <img src="./assets/Turnadot.png" class="gallery-img" alt="">
+            </div>
         </div>
+
+        <div class="site-title" id="perf-title">
+            <h1>Past Performances</h1>
+            <p>A glimpse into some of Michael's most memorable roles throughout his theatrical career.</p>
+        </div>
+
     </div>
-    <div id="schedule" class="container">
-        <div class="card">
-            <h1>Get in Touch!</h1>
-            <h2>Have an upcoming performance? Looking a for a new teacher? Just trying to get better at singing? Michael does it all!</h2>
-            <div class="contact-container">
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-                    <div class="contact-left-title">
-                        <h2>Get in touch</h2>
+
+    <div id="Contact" class="content">
+        <div class="site-title">
+            <h1>Voice Coaching</h1>
+            <p>Take your vocal performance to the next level with personalized coaching sessions.</p>
+        </div>
+        <div class="contact-container">
+            <div class="links">
+                <h2>Contact Information</h2>
+                <div class="contact">
+                    <img src="./assets/mailicon.svg" class="icon" alt="">
+                    <div class="right">
+                        <h3>Email</h3>
+                        <h4 class="grey">Example@email.com</h4>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <img src="./assets/phone-icon.svg" class="icon" alt="">
+                    <div class="right">
+                        <h3>Phone</h3>
+                        <h4 class="grey">(786) 239-9390</h4>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <img src="./assets/loc-icon.svg" class="icon" alt="">
+                    <div class="right">
+                        <h3>Teaching Locations</h3>
+                        <h4 class="grey">NYC, Jersey City, & Remote</h4>
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <h2>Follow Michael</h2>
+                    <a href="https://www.instagram.com/mlvbassbari/"><img src="./assets/ig-icon.svg" class="icon" alt=""></a>
+                </div>
+
+            </div>
+
+            <div class="schedule">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    <div class="contact-title">
+                        <h2>Schedule a Session</h2>
                         <hr>
                     </div>
                     <input type="hidden" name="access_key" value="">
-                    <input type="text" name="name" placeholder="Name" class="contact-input">
-                    <input type="email" name="email" placeholder="Email" class="contact-input">
-                    <textarea name="message" placeholder="Message" class="contact-input" id=""></textarea>
-                    <button type="submit">Submit <img src="../assets/arrow-icon.png"></button>
+                    <label for="first">First Name</label>
+                    <input type="text" name="first" placeholder="Enter your first name" class="contact-input">
+                    <label for="last">Last Name</label>
+                    <input type="text" name="last" placeholder="Enter your last name" class="contact-input">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email address" class="contact-input">
+                    <label for="date">Perferred Date</label>
+                    <input type="date" name="date" class="contact-input">
+                    <label for="message">Message</label>
+                    <textarea name="message" placeholder="Tell us about your experience and goals" class="contact-input"></textarea>
+                    <button type="submit" id="submit-contact" class="yellow button">Submit Request</button>
                 </form>
-                <div class="contact-right">
-                    <img src="../assets/contact-right.jpg" class="contact-img" alt="">
-                </div>
             </div>
         </div>
     </div>
+    
 </body>
 </html>

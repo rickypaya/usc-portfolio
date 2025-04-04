@@ -1,1 +1,11 @@
 /assets
+
+Routes/BassBari/assets
+
+Routes/APG/assets
+
+*/.DS_Store
+
+*/*/.DS_Store
+
+.DS_Store

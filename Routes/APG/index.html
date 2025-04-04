@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affinity Psychiatric Group</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="Affinity Psychiatric Group Logo" style="width: auto; height: 40px;">
+                <span>Affinity Psychiatric Group</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#appointment">Appointments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#appointment" class="btn btn-primary">Schedule Appointment</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Compassionate psychiatric care for your mental wellness journey</h1>
+                    <p>At Affinity Psychiatric Group, we provide personalized mental health care in a supportive, non-judgmental environment. Your well-being is our priority.</p>
+                    <div class="hero-buttons">
+                        <a href="#appointment" class="btn btn-primary">Schedule Appointment</a>
+                        <a href="#services" class="btn btn-outline">Our Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./assets/doctor-hero.jpg" alt="Mental health support illustration">
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>We offer a comprehensive range of psychiatric services to support your mental health needs.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Individual Therapy</h3>
+                        <p>One-on-one therapy sessions tailored to your specific needs and goals, providing a safe space for personal growth and healing.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>Medication Management</h3>
+                        <p>Expert medication evaluation, prescription, and ongoing monitoring to ensure optimal treatment outcomes with minimal side effects.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Psychiatric Evaluations</h3>
+                        <p>Comprehensive assessments to accurately diagnose mental health conditions and develop personalized treatment plans.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Telepsychiatry</h3>
+                        <p>Convenient virtual appointments that provide the same quality care as in-person visits from the comfort of your home.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Senior Care</h3>
+                        <p>Providing compassionate, personalized senior psychiatric care, offering in-home and telehealth therapy, dementia support, and medication management to enhance quality of life for older adults.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-life-ring"></i>
+                        </div>
+                        <h3>Crisis Intervention</h3>
+                        <p>Immediate support and stabilization services for individuals experiencing acute mental health crises.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Us</h2>
+                    <p>At Affinity Psychiatric Group, we believe in a holistic approach to mental health care. Our team of experienced professionals is committed to providing evidence-based treatment in a compassionate, respectful environment. We work collaboratively with each patient to develop personalized care plans that address their unique needs and goals.</p>
+                </div>
+                <div class="providers-grid">
+                    <div class="provider-card">
+                        <div class="provider-image">
+                            <img src="./assets/headshot.jpeg" alt="Dr. Sarah Johnson">
+                        </div>
+                        <h3>Dr. Hector R. Payares</h3>
+                        <p class="provider-title">Psychiatric-Mental Health NP</p>
+                        <div class="specialties">
+                            <span class="specialty-badge">Telepsychiatry</span>
+                            <span class="specialty-badge">Anxiety Disorders</span>
+                            <span class="specialty-badge">Geriatric Psychiatry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment" class="appointment">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Request an Appointment</h2>
+                    <p>Fill out the form below to request an appointment with one of our providers. We'll contact you within 1-2 business days to confirm your appointment.</p>
+                </div>
+                <div class="form-container">
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance">Insurance Provider <span class="required">*</span></label>
+                                <select id="insurance" name="insurance" required>
+                                    <option value="" disabled selected>Select your insurance provider</option>
+                                    <option value="aetna">Aetna</option>
+                                    <option value="bluecross">Blue Cross Blue Shield</option>
+                                    <option value="cigna">Cigna</option>
+                                    <option value="humana">Humana</option>
+                                    <option value="medicare">Medicare</option>
+                                    <option value="medicaid">Medicaid</option>
+                                    <option value="unitedhealth">UnitedHealthcare</option>
+                                    <option value="other">Other</option>
+                                    <option value="selfpay">Self-Pay</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="referralSource">How did you hear about us?</label>
+                            <select id="referralSource" name="referralSource">
+                                <option value="" disabled selected>Select referral source</option>
+                                <option value="doctor">Doctor Referral</option>
+                                <option value="friend">Friend or Family</option>
+                                <option value="insurance">Insurance Provider</option>
+                                <option value="internet">Internet Search</option>
+                                <option value="social">Social Media</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Appointment Date <span class="required">*</span></label>
+                                <input type="date" id="preferredDate" name="preferredDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timePreference">Preferred Time <span class="required">*</span></label>
+                                <select id="timePreference" name="timePreference" required>
+                                    <option value="" disabled selected>Select preferred time</option>
+                                    <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                    <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="visitReason">Reason for Visit <span class="required">*</span></label>
+                            <select id="visitReason" name="visitReason" required>
+                                <option value="" disabled selected>Select reason for visit</option>
+                                <option value="new-consultation">New Patient Consultation</option>
+                                <option value="follow-up">Follow-up Appointment</option>
+                                <option value="medication-review">Medication Review</option>
+                                <option value="therapy">Therapy Session</option>
+                                <option value="evaluation">Psychiatric Evaluation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Information</label>
+                            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Please provide any additional information that may be helpful for your appointment."></textarea>
+                            <p class="form-description">This information will be kept confidential and only shared with your provider.</p>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="hipaaConsent" name="hipaaConsent" required>
+                            <div>
+                                <label for="hipaaConsent">HIPAA Privacy Notice Consent <span class="required">*</span></label>
+                                <p class="form-description">I acknowledge that I have been informed of Affinity Psychiatric Group's Notice of Privacy Practices, which explains how my medical information will be used and disclosed. I understand that I am entitled to receive a copy of this document.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-full">Submit Appointment Request</button>
+                        </div>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Office Address</h3>
+                                <p>8367 Coral Way, #439<br>Miami, FL 33155</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>(645) 214-4575</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@affinitygroup.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Office Hours</h3>
+                                <p>
+                                    Coming Soon!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <h3>Telepsychiatry Hours</h3>
+                                <p>
+                                    Monday - Thursday: 8:00 AM - 8:00 PM<br>
+                                    Friday: 8:00 AM - 6:00 PM<br>
+                                    Saturday: 9:00 AM - 3:00 PM
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emergency-resources">
+                        <h2>Emergency Resources</h2>
+                        <div class="resource-card">
+                            <h3>In Case of Emergency</h3>
+                            <p>
+                                If you are experiencing a mental health emergency or having thoughts of harming yourself or others, 
+                                please call 911 or go to your nearest emergency room immediately.
+                            </p>
+                            <div class="emergency-contacts">
+                                <div class="emergency-contact">
+                                    <i class="fas fa-phone"></i>
+                                    <p><strong>988</strong> - Suicide & Crisis Lifeline</p>
+                                </div>
+                                <div class="emergency-contact">
+                                    <i class="fas fa-phone"></i>
+                                    <p><strong>1-800-273-8255</strong> - National Suicide Prevention Lifeline</p>
+                                </div>
+                                <div class="emergency-contact">
+                                    <i class="fas fa-phone"></i>
+                                    <p><strong>1-800-662-4357</strong> - SAMHSA's National Helpline</p>
+                                </div>
+                                <div class="emergency-contact">
+                                    <i class="fas fa-phone"></i>
+                                    <p><strong>Text HOME to 741741</strong> - Crisis Text Line</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resource-card">
+                            <h3>After-Hours Support</h3>
+                            <p>
+                                Current patients can reach our on-call provider for urgent matters by calling our main office 
+                                number and following the prompts for the after-hours service.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Affinity Psychiatric Group. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/accessibility">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

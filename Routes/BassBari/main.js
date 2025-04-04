@@ -13,7 +13,7 @@ gsap.ticker.lagSmoothing(0);
 //camera!
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const textLoader = new THREE.TextureLoader();
-const texture = textLoader.load("../../assets/theater-background.jpg");
+const texture = textLoader.load("./assets/theater-background.jpg");
 texture.minFilter = THREE.LinearFilter;
 const scene = new THREE.Scene();
 scene.background = texture;
@@ -36,6 +36,13 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight
     camera.updateProjectionMatrix()
     renderer.setSize(window.innerWidth, window.innerHeight);
+    const box = new THREE.Box3().setFromObject(model);
+    let center = box.getCenter(new THREE.Vector3());
+    model.position.sub(center);
+
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    camera.position.z = maxDim * 1.2;
     basicAnimate();
 }, false);
 
@@ -89,75 +96,72 @@ const rotationSpeed = 0.3;
 let isFloating = true;
 let currentScroll = 0;
 const stickyHeight = window.innerHeight;
-const scheduleSection = document.querySelector("#schedule");
+const scheduleSection = document.querySelector("#Contact");
 const schedulePos = scheduleSection.offsetTop;
 
 function playInitialAnimation() {
     //initial animation to scale in theater
     if(model) {
         setTimeout(() => {
-            gsap.to(model.scale, {
-                x: 1, y: 1, z: 1,
-                duration: 1,
-                ease: "power2.out", 
+            gsap.to(model.rotation, {
+                y: model.rotation.y + Math.PI * 2 + Math.PI/32,
+                duration: 2,
+                ease: "power2.out",
             });
-        }, 3000);
+            gsap.to(model.scale, {
+                x: 1.5, y: 1.5, z: 1.5,
+                duration: 1.5,
+                ease: "power2.in", 
+            });
+
+        }, 2000);
     }
 }
 
 ScrollTrigger.create({
     //animation for rescaling theater after dismissing
-    trigger: "#home",
+    trigger: "#Hero",
     start: "top top",
-    end: `top -10`,
+    end: `${stickyHeight/2}px`,
     onEnterBack: () => {
-        if(model) {
-            gsap.to(model.scale, {
-                x: 1, y: 1, z: 1,
-                duration: 1,
-                ease: "power2.out",
-                onComplete: () => {
-                    gsap.to(model.rotation, {
-                        y: 0,
-                        duration: 0.2,
-                        ease: "power2.in",
-                        onComplete: () => {
-                            gsap.to(model.position, {
-                                x: pos.x,
-                                duration: 0.5,
-                                ease: "power2.in"
-                            })
-                        }
-                    })        
-                }
+        if(model) {            
+            gsap.to(model.rotation, {
+                y: model.rotation.y + Math.PI / 4,
+                duration: 2,
+                ease: "power2.inOut",
             });
-            isFloating = true;
+            gsap.to(model.scale, {
+                x: 1.5, y: 1.5, z: 1.5,
+                duration: 1.5,
+                ease: "power2.in", 
+            });
         }
+        isFloating = true;
+        document.querySelector(".contact-container").classList.remove("show-contact-cards");
     }
 })
 
 ScrollTrigger.create({
-    trigger: "#bio",
+    trigger: "#Biography",
     start: "top top",
     end: `${stickyHeight}px`,
+    pin: true,
     onEnter: () => {
-        if(model) {
+        if(model && model.scale.x > 0) {
             gsap.to(model.scale, {
-                x: 1.5, y: 1.5, z: 1.5,
-                duration: 0.5,
-                ease: "power2.in",
-                onComplete: () => {
-                    gsap.to(model.rotation, {
-                        y: Math.PI/4,
-                        duration: 0.5,
-                        ease: "power2.in",
-                    })
-                }
+                x: 2, y: 2, z: 1.5,
+                duration: 1,
+                ease: "power2.in"
+            });
+            gsap.to(model.rotation, {
+                y: model.rotation.y + Math.PI / 4,
+                duration: 2,
+                ease: "power2.inOut",
             })
         }
     },
     onEnterBack: () => {
-        if(model) {
+        if(model && model.scale.x > 0) {
             //return model to y rotation 0
             gsap.to(model.rotation, {
                 y: 0,
@@ -165,40 +169,29 @@ ScrollTrigger.create({
                 ease: "power2.in",
                 onComplete: () => {
                     //scale out to 1
-                    gsap.to(model.scale,{
-                        x: 1, y: 1, z:1,
-                        duration: 0.5,
-                        ease: "power2.out",
-                        onComplete: () => {
-                            gsap.to(model.scale, {
-                                x: 1.5, y: 1.5, z: 1.5,
-                                duration: 0.5,
+                            gsap.to(model.rotation, {
+                                y: Math.PI/8,
+                                duration: 1,
                                 ease: "power2.in",
-                                onComplete: () => {
-                                    gsap.to(model.rotation, {
-                                        y: Math.PI/8,
-                                        duration: 0.5,
-                                        ease: "power2.in",
-                                    })
-                                }
                             })
-                        }
-                    })
                 }
             })
         }
     }
-})
+});
+        
 
 ScrollTrigger.create({
-    trigger: "#gallery",
+    trigger: "#Performances",
     start: "top top",
     end: `${stickyHeight}px`,
+    pin: true,
     onEnter: () => {
-        if(model) {
+        if(model && model.scale.x > 0) {
+            model.position.y = -1;
             //return model to y rotation 0
             gsap.to(model.rotation, {
-                y: 0,
+                y: model.rotation.y - 2 * ( Math.PI/ 4),
                 duration: 0.5,
                 ease: "power2.in",
                 onComplete: () => {
@@ -208,19 +201,8 @@ ScrollTrigger.create({
                         duration: 0.5,
                         ease: "power2.out",
                         onComplete: () => {
-                            //scale to 1.5
-                            gsap.to(model.scale, {
-                                x: 1.5, y: 1.5, z: 1.5,
-                                duration: 0.5,
-                                ease: "power2.in",
-                                onComplete: () => {
-                                    //rotate to other side
-                                    gsap.to(model.rotation, {
-                                        y:- Math.PI/8,
-                                        duration: 0.5,
-                                        ease: "power2.in",
-                                    })
-                                }
+                            gsap.to(model.position, {
+                                x: 2.5
                             })
                         }
                     })
@@ -232,39 +214,49 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
     //trigger to spin and scale down theater
-    trigger: "#schedule",
+    trigger: "#Contact",
     start: "top top",
     end: `${stickyHeight}px`,
     pin: true,
     onEnter: () => {
         if(model) {
-            //first rotate the model to y rotation = 0 
             isFloating = false;
             model.position.y = -1.5;
+            
             gsap.to(model.rotation, {
-                y: 0,
-                duration: 0.5,
-                ease: "power2.in",
-
+                y: model.rotation.y + Math.PI/4,
                 onComplete: () => {
-                    //spin model 360 deg
-                    gsap.to(model.rotation, {
-                        y: model.rotation.y + Math.PI * 2,
-                        duration: 1,
-                        ease: "power2.inOut",
+                    gsap.to(model.position, {
+                        x: 0,
                         onComplete: () => {
-                            //scale model out to 0
-                            gsap.to(model.scale, {
-                                x: 0, y: 0, z: 0,
-                                duration: 0.5,
-                                ease: "power2.in"
+                            //spin model 360 deg
+                            gsap.to(model.rotation, {
+                                y: model.rotation.y + Math.PI * 2,
+                                duration: 1,
+                                ease: "power2.inOut",
+                                onComplete: () => {
+                                    //scale model out to 0
+                                    gsap.to(model.scale, {
+                                        x: 0, y: 0, z: 0,
+                                        duration: 0.5,
+                                        ease: "power2.in",
+                                    })
+                                }
                             })
                         }
                     })
                 }
             })
+                
         }
+        setTimeout(() => {
+            document.querySelector(".contact-container").classList.add("show-contact-cards");
+        },2000)
     }
+});
+
+document.getElementById("nav-button").addEventListener('click', () => {
+    document.querySelector(".off-screen-menu").classList.toggle("show");
 })
 
 lenis.on("scroll", (e) => {
@@ -275,7 +267,7 @@ function animate() {
     if(model){
         //floating animation
         if(isFloating){
-            const floatOffset = Math.sin(Date.now() * 0.001 * floatSpeed) * floatAmp -1.5;
+            const floatOffset = Math.sin(Date.now() * 0.001 * floatSpeed) * floatAmp -2;
             model.position.y = floatOffset;
         }
     }
