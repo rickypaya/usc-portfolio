@@ -13,7 +13,7 @@ gsap.ticker.lagSmoothing(0);
 //camera!
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const textLoader = new THREE.TextureLoader();
-const texture = textLoader.load("./assets/theater-background.jpg");
+const texture = textLoader.load("https://imagedelivery.net/JKoeBV1zDfcIsivGn5FH3A/94506dd8-f035-4f07-b47b-93a9499ec700/public");
 texture.minFilter = THREE.LinearFilter;
 const scene = new THREE.Scene();
 scene.background = texture;

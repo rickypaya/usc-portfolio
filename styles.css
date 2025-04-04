@@ -302,9 +302,9 @@ nav {
 
 .headshot-placeholder {
     width: 300px;
-    height: 300px;
+    height: auto;
     background-color: var(--gray-color);
-    border-radius: 50%;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
