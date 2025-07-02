@@ -1,8 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  root: "fulcrum",
+  root: "./fulcrum", // Set the root directory to /fulcrum
+  build: {
+    rollupOptions: {
+      input: "./fulcrum/index.html", // Specify the entry HTML file
+    },
+  },
 });
