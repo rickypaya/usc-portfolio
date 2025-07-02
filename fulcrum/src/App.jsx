@@ -21,7 +21,7 @@ function App() {
                 <a href="#bio">About</a>
               </li>
               <li>
-                <a href="#capabilities">Skills</a>
+                <a href="#capabilities">Services</a>
               </li>
               <li>
                 <a href="#connect">Connect</a>
