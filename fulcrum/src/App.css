@@ -391,7 +391,7 @@ nav {
 }
 
 .connect-section p {
-  max-width: 600px;
+  max-width: 66vw;
   margin: 0 auto 30px;
   color: var(--secondary-color);
 }
