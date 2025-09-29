@@ -557,7 +557,7 @@ function App() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <p>&copy; 2025 Fulcrum Web. All rights reserved.</p>
+              <p>&copy; 2025 Star Pages All rights reserved.</p>
             </motion.div>
           </div>
         </div>
