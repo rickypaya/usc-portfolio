@@ -91,7 +91,7 @@ function App() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Fulcrum Web.
+              Star Pages
             </motion.div>
 
             <motion.div
@@ -178,18 +178,18 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Web Design for Small Business &amp; Artists
+              Web Design for Visual &amp; Performing Artists
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              Creating digital experiences that drive growth, innovation, and
-              creativity. From branding and marketing to web development and
-              solutions architecture, we're looking to assist small businesses
-              in establishing their presence online and begin recieving web
-              traffic.
+              Creating digital experiences that drive growth, independence, and
+              creativity. From branding and marketing to web design and
+              development, we're looking to assist all kinds of artists in
+              establishing their presence online and begin recieving web traffic
+              and streamline future income.
             </motion.p>
             <motion.a
               href="#connect"
@@ -308,7 +308,7 @@ function App() {
               </motion.h2>
 
               {[
-                "We are a small interdisciplinary team of University of Southern California masters students helping resource-constrained small businesses thrive through attractive, functional websites. Our solutions not only grow customer bases but also increase operational efficiency.",
+                "We are a small interdisciplinary team of University of Southern California masters students helping resource-constrained independent creatives thrive through attractive, functional websites. Our solutions not only grow customer bases but also increase operational efficiency.",
                 "Our approach combines cutting-edge technology with user-centered design principles to deliver digital products that work seamlessly while providing exceptional user experiences. We believe good design and solid engineering are equally important in creating successful digital solutions.",
                 "Different businesses have different needs, and we're here to understand those needs and help you find the right solution. Working with our interdisciplinary team means we all collaborate toward the same goal: creating products that are functional, beautiful, and easy to use for your specific business. Check out some of our offerings below.",
               ].map((text, index) => (
