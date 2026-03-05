@@ -35,18 +35,10 @@ const staggerContainer = {
   },
 };
 
-const scaleOnHover = {
-  hover: {
-    scale: 1.05,
-    transition: { duration: 0.3, ease: "easeInOut" },
-  },
-  tap: { scale: 0.95 },
-};
-
 const cardHover = {
   hover: {
     y: -10,
-    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+    boxShadow: "0 20px 40px rgba(153,255,0,0.2)",
     transition: { duration: 0.3, ease: "easeInOut" },
   },
 };
@@ -69,12 +61,379 @@ const AnimatedSection = ({ children, variants = fadeInUp, delay = 0 }) => {
   );
 };
 
+// ===== PORTFOLIO PAGE =====
+function PortfolioPage({ onBack }) {
+  const paidWork = [
+    {
+      title: "Affinity Psychiatric",
+      category: "Healthcare",
+      description:
+        "Single-page marketing site for new psychiatric practice in Miami.",
+      image: "./Psych.jpg",
+      url: "https://affinitypsychiatric.net/",
+    },
+    {
+      title: "Sunset Dentistry",
+      category: "Healthcare - Coming Soon",
+      description:
+        "Full website redesign for a dental practice in Los Angeles.",
+      image: "./Dentist.jpg",
+      url: "#",
+    },
+  ];
+
+  const p5Sketches = [
+    {
+      title: "Kinetic Typography",
+      url: "https://editor.p5js.org/payares/full/KGsT7ovgo",
+    },
+    {
+      title: "Generative Patterns",
+      url: "https://editor.p5js.org/payares/full/fpBuK7aGl",
+    },
+    {
+      title: "3D Oscillations",
+      url: "https://editor.p5js.org/payares/full/e5Tx9tZqp",
+    },
+    {
+      title: "Generative Tunnels",
+      url: "https://editor.p5js.org/payares/full/TTuLK8uIf",
+    },
+    {
+      title: "Noise Terrain",
+      url: "https://editor.p5js.org/payares/full/z-z1_vGhH",
+    },
+    {
+      title: "Boid Simulation",
+      url: "https://editor.p5js.org/payares/full/ttwg4yApl",
+    },
+  ];
+
+  return (
+    <div className="portfolio-page">
+      {/* Back Button */}
+      <motion.button
+        className="back-btn"
+        onClick={onBack}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        whileHover={{ x: -4, color: "var(--accent-color)" }}
+      >
+        <span className="back-arrow">←</span> Back to Home
+      </motion.button>
+
+      {/* Portfolio Hero */}
+      <section className="portfolio-hero">
+        <div className="portfolio-hero-bg">
+          <div className="scanlines" />
+          <div className="neon-grid" />
+        </div>
+        <div className="container">
+          <motion.div
+            className="portfolio-hero-content"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.div
+              className="portfolio-photo-frame"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              whileHover={{ rotateY: 5, rotateX: 5, scale: 1.02 }}
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <img
+                src="./headshot.jpg"
+                alt="Ricardo Payares"
+                className="portfolio-headshot"
+              />
+              <div className="photo-neon-border" />
+            </motion.div>
+
+            <motion.div
+              className="portfolio-bio-text"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="glitch-wrapper">
+                <h1 className="portfolio-name glitch" data-text="Ricky Payares">
+                  Ricky Payares
+                </h1>
+              </div>
+              <p className="portfolio-tagline">
+                <span className="neon-green">Full-Stack Developer</span> · Web
+                Designer · USC MSIDT · NYC
+              </p>
+              <p className="portfolio-bio">
+                USC Master's student in Integrated Design, Business, and
+                Technology. Former Software Engineer at Bloomberg LP, where I
+                built UI/UX components at scale bridging product thinking with
+                engineering execution. Designing digital experiences for
+                artists, musicians, and creators who deserve something more than
+                a template.
+              </p>
+              <p className="portfolio-bio">
+                My work lives at the intersection of tangible culture and
+                digital utility: generative art, analog tech innovation,
+                interactive web experiences, and more!
+              </p>
+              <div className="portfolio-tags">
+                {[
+                  "SwiftUI",
+                  "React",
+                  "Node.js",
+                  "p5.js",
+                  "PostgreSQL",
+                  "RealityKit",
+                ].map((tag) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Paid Work Section */}
+      <section className="portfolio-section paid-work-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-label">
+              <span className="label-tag">// CLIENT WORK</span>
+              <h2 className="portfolio-section-title">Paid Projects</h2>
+            </div>
+            <p className="section-subtitle">
+              Freelance web design projects. These project showcase the entire
+              process of designing, developing, and hosting custom websites for
+              small business clients.
+            </p>
+          </AnimatedSection>
+
+          <motion.div
+            className="portfolio-grid"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+          >
+            {paidWork.map((project, index) => (
+              <motion.a
+                key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="portfolio-card"
+                variants={fadeInUp}
+                whileHover={{ y: -12, transition: { duration: 0.25 } }}
+              >
+                <div className="portfolio-card-img-wrap">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="portfolio-card-img"
+                  />
+                  <div className="portfolio-card-overlay">
+                    <span className="view-site">View Site →</span>
+                  </div>
+                </div>
+                <div className="portfolio-card-info">
+                  <span className="project-category">{project.category}</span>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-desc">{project.description}</p>
+                </div>
+                <div className="card-neon-line" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* iOS Projects Section */}
+      <section className="portfolio-section ios-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-label">
+              <span className="label-tag">// iOS DEVELOPMENT</span>
+              <h2 className="portfolio-section-title">iOS Projects</h2>
+            </div>
+            <p className="section-subtitle">
+              SwiftUI Projects made during John Bruneau's Mobile App Development
+              and Master's Capstone with Matthew Manos and Thomas Dadourian
+              while at USC. Explores interactive design, real-time data, 3D
+              graphics, problem solving, and fun! Check out the repos to see the
+              code and try them out for yourself.
+            </p>
+          </AnimatedSection>
+
+          <motion.div
+            className="ios-grid"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+          >
+            {[
+              {
+                title: "Deadly Dining",
+                emoji: "🍽️",
+                stack: ["SwiftUI", "AVFoundation", "Party Game"],
+                description:
+                  "A game of secrets, suspicion, and betrayal. Each player takes turns picking an item to poison, then trying to avoid being poisoned themselves. A fun and suspenseful game for parties and gatherings.",
+                color: "#ff3366",
+                url: "https://github.com/rickypaya/Deadly-Dining",
+              },
+              {
+                title: "Patch'd",
+                emoji: "🩹",
+                stack: [
+                  "SwiftUI",
+                  "SupaBase",
+                  "Social Collaging",
+                  "Realtime Data",
+                ],
+                description:
+                  "A real-time social collaging app for friends. Patch'd lets users co-edit boards, adding photos from their camera or library, cutouts from photos, or Patch'd's sticker library. Includes party mode for creative challenges and hidden previews to keep everyone on their toes.",
+                color: "#99ff00",
+                url: "https://github.com/rickypaya/PATCH-D",
+              },
+              {
+                title: "Disco",
+                emoji: "🌐",
+                stack: [
+                  "SwiftUI",
+                  "RealityKit",
+                  "Spotify API",
+                  "MusicBrainz API",
+                ],
+                description:
+                  "A global music discovery experience rendered on an interactive 3D globe. Explore new genres on their place of origin, and discover artists in those genres through custom spotify playlists.",
+                color: "#33ccff",
+                url: "https://github.com/rickypaya/Disco-Music",
+              },
+            ].map((project, index) => (
+              <motion.a
+                key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ios-card"
+                variants={fadeInUp}
+                whileHover={{ y: -10, transition: { duration: 0.25 } }}
+                style={{ "--card-accent": project.color }}
+              >
+                <div className="ios-card-top">
+                  <span className="ios-emoji">{project.emoji}</span>
+                  <div className="ios-card-stack">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="ios-tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <h3 className="ios-card-title">{project.title}</h3>
+                <p className="ios-card-desc">{project.description}</p>
+                <div className="ios-card-line" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Artistic / p5.js Section */}
+      <section className="portfolio-section artistic-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-label">
+              <span className="label-tag">// GENERATIVE ART</span>
+              <h2 className="portfolio-section-title">Creative Experiments</h2>
+            </div>
+            <p className="section-subtitle">
+              Live p5.js sketches. Created in Computational Visual Design with
+              Aaron Seigel at USC. These are playgrounds for exploring
+              generative art and natural simulations through the "Nature of
+              Code" by Daniel Shiffman. Click into any sketch to see it in
+              action!
+            </p>
+          </AnimatedSection>
+
+          <motion.div
+            className="sketches-grid"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+          >
+            {p5Sketches.map((sketch, index) => (
+              <motion.div
+                key={index}
+                className="sketch-card"
+                variants={fadeInUp}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              >
+                <div className="sketch-label">
+                  <span className="sketch-num">0{index + 1}</span>
+                  <span className="sketch-title">{sketch.title}</span>
+                </div>
+                <div className="sketch-frame-wrap">
+                  <iframe
+                    src={sketch.url}
+                    className="sketch-iframe"
+                    title={sketch.title}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen
+                  />
+                  <div className="sketch-corner sketch-corner-tl" />
+                  <div className="sketch-corner sketch-corner-tr" />
+                  <div className="sketch-corner sketch-corner-bl" />
+                  <div className="sketch-corner sketch-corner-br" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-links">
+              <motion.a
+                href="mailto:info@payares-dev.com"
+                whileHover={{ color: "var(--accent-color)", scale: 1.05 }}
+              >
+                info@payares-dev.com
+              </motion.a>
+            </div>
+            <div className="footer-info">
+              <p>&copy; 2025 Star Pages. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ===== MAIN APP =====
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [page, setPage] = useState("home"); // "home" | "portfolio"
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
+
+  if (page === "portfolio") {
+    return <PortfolioPage onBack={() => setPage("home")} />;
+  }
 
   return (
     <>
@@ -96,7 +455,7 @@ function App() {
 
             <motion.div
               className={`menu-toggle ${isMenuOpen ? "active" : ""}`}
-              onClick={toggleMenu}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -129,10 +488,7 @@ function App() {
                     x: 0,
                     transition: { staggerChildren: 0.1, delayChildren: 0.2 },
                   },
-                  closed: {
-                    opacity: 1,
-                    x: 0,
-                  },
+                  closed: { opacity: 1, x: 0 },
                 }}
               >
                 {[
@@ -140,7 +496,7 @@ function App() {
                   { href: "#bio", text: "About" },
                   { href: "#capabilities", text: "Services" },
                   { href: "#connect", text: "Connect" },
-                ].map((item, index) => (
+                ].map((item) => (
                   <motion.li
                     key={item.href}
                     variants={{
@@ -188,7 +544,7 @@ function App() {
               Creating digital experiences that drive growth, independence, and
               creativity. From branding and marketing to web design and
               development, we're looking to assist all kinds of artists in
-              establishing their presence online and begin recieving web traffic
+              establishing their presence online and begin receiving web traffic
               and streamline future income.
             </motion.p>
             <motion.a
@@ -216,11 +572,7 @@ function App() {
             <div className="illustration">
               <motion.div
                 className="code-window"
-                whileHover={{
-                  scale: 1.02,
-                  rotateY: 5,
-                  rotateX: 5,
-                }}
+                whileHover={{ scale: 1.02, rotateY: 5, rotateX: 5 }}
                 transition={{ duration: 0.3 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
@@ -287,11 +639,7 @@ function App() {
                 src="./hand.jpeg"
                 className="headshot code-window"
                 alt="Headshot"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  rotateX: 5,
-                }}
+                whileHover={{ scale: 1.05, rotateY: 5, rotateX: 5 }}
                 transition={{ duration: 0.4 }}
                 style={{ transformStyle: "preserve-3d" }}
               />
@@ -310,7 +658,7 @@ function App() {
               {[
                 "We are a small interdisciplinary team of University of Southern California masters students helping resource-constrained independent creatives thrive through attractive, functional websites. Our solutions not only grow customer bases but also increase operational efficiency.",
                 "Our approach combines cutting-edge technology with user-centered design principles to deliver digital products that work seamlessly while providing exceptional user experiences. We believe good design and solid engineering are equally important in creating successful digital solutions.",
-                "Different businesses have different needs, and we're here to understand those needs and help you find the right solution. Working with our interdisciplinary team means we all collaborate toward the same goal: creating products that are functional, beautiful, and easy to use for your specific business. Check out some of our offerings below.",
+                "Different businesses have different needs, and we're here to understand those needs and help you find the right solution. Working with our interdisciplinary team means we all collaborate toward the same goal: creating products that are functional, beautiful, and easy to use for your specific business.",
               ].map((text, index) => (
                 <motion.p
                   key={index}
@@ -322,6 +670,23 @@ function App() {
                   {text}
                 </motion.p>
               ))}
+
+              {/* Portfolio Link */}
+              <motion.button
+                className="btn btn-primary portfolio-link-btn"
+                onClick={() => setPage("portfolio")}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(153, 255, 0, 0.4)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                View Our Portfolio →
+              </motion.button>
             </motion.div>
           </motion.div>
         </div>
@@ -415,7 +780,7 @@ function App() {
                   "Frontend Development & Frameworks",
                   "Backend & API Development",
                   "Database Management & SQL",
-                  "PERN Stack - PostgreSQL, Express, React, Node.js",
+                  "PERN Stack",
                 ],
               },
             ].map((capability, index) => (
@@ -425,19 +790,14 @@ function App() {
                 variants={fadeInUp}
                 whileHover={cardHover.hover}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
               >
                 <motion.div
                   className="card-icon"
-                  whileHover={{
-                    rotate: 360,
-                    scale: 1.1,
-                  }}
+                  whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
                   {capability.icon}
                 </motion.div>
-
                 <motion.h3
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -446,15 +806,12 @@ function App() {
                 >
                   {capability.title}
                 </motion.h3>
-
                 <motion.ul
                   initial="initial"
                   whileInView="animate"
                   viewport={{ once: true }}
                   variants={{
-                    animate: {
-                      transition: { staggerChildren: 0.1 },
-                    },
+                    animate: { transition: { staggerChildren: 0.1 } },
                   }}
                 >
                   {capability.items.map((item, itemIndex) => (
@@ -540,16 +897,12 @@ function App() {
             >
               <motion.a
                 href="mailto:info@payares-dev.com"
-                whileHover={{
-                  color: "var(--accent-color)",
-                  scale: 1.05,
-                }}
+                whileHover={{ color: "var(--accent-color)", scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 info@payares-dev.com
               </motion.a>
             </motion.div>
-
             <motion.div
               className="footer-info"
               initial={{ opacity: 0, y: 20 }}
@@ -557,7 +910,7 @@ function App() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <p>&copy; 2025 Star Pages All rights reserved.</p>
+              <p>&copy; 2025 Star Pages. All rights reserved.</p>
             </motion.div>
           </div>
         </div>
