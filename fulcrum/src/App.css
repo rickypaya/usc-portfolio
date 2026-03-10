@@ -168,11 +168,15 @@ nav {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--secondary-color);
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 102px;
+  width: auto;
+  display: block;
+  /* filter: drop-shadow(0 0 8px rgba(153, 255, 0, 0.4)); */
 }
 
 .nav-menu {
