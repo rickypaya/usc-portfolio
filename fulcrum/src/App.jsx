@@ -281,39 +281,34 @@ function PortfolioPage({ onBack }) {
               {
                 title: "Deadly Dining",
                 emoji: "🍽️",
-                stack: ["SwiftUI", "AVFoundation", "Party Game"],
+                stack: ["AVFoundation", "Party Game"],
                 description:
                   "A game of secrets, suspicion, and betrayal. Each player takes turns picking an item to poison, then trying to avoid being poisoned themselves. A fun and suspenseful game for parties and gatherings.",
                 color: "#ff3366",
                 url: "https://github.com/rickypaya/Deadly-Dining",
               },
               {
-                title: "Patch'd",
-                emoji: "🩹",
+                title: "Disco",
+                emoji: "🌐",
+                stack: ["RealityKit", "Spotify API", "MusicBrainz API"],
+                description:
+                  "A global music discovery experience rendered on an interactive 3D globe. Explore new genres on their place of origin, and discover artists in those genres through custom spotify playlists.",
+                color: "#33ccff",
+                url: "https://github.com/rickypaya/Disco-Music",
+              },
+              {
+                title: "Sonex",
+                emoji: "🎧",
                 stack: [
-                  "SwiftUI",
                   "SupaBase",
-                  "Social Collaging",
-                  "Realtime Data",
+                  "Social Networking",
+                  "NFC Tech",
+                  "App Clips",
                 ],
                 description:
                   "A real-time social collaging app for friends. Patch'd lets users co-edit boards, adding photos from their camera or library, cutouts from photos, or Patch'd's sticker library. Includes party mode for creative challenges and hidden previews to keep everyone on their toes.",
                 color: "#99ff00",
                 url: "https://github.com/rickypaya/PATCH-D",
-              },
-              {
-                title: "Disco",
-                emoji: "🌐",
-                stack: [
-                  "SwiftUI",
-                  "RealityKit",
-                  "Spotify API",
-                  "MusicBrainz API",
-                ],
-                description:
-                  "A global music discovery experience rendered on an interactive 3D globe. Explore new genres on their place of origin, and discover artists in those genres through custom spotify playlists.",
-                color: "#33ccff",
-                url: "https://github.com/rickypaya/Disco-Music",
               },
             ].map((project, index) => (
               <motion.a
