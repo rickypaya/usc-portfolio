@@ -446,7 +446,7 @@ function App() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <img src="./LinkCraft-logo.png" alt="Linkcraft Logo" />
+              <img src="./Logo.svg" alt="Logo" />
             </motion.div>
 
             <motion.div
