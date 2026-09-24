@@ -173,7 +173,7 @@ nav {
 }
 
 .logo img {
-  height: 102px;
+  height: 80px;
   width: auto;
   display: block;
   /* filter: drop-shadow(0 0 8px rgba(153, 255, 0, 0.4)); */
@@ -210,6 +210,14 @@ nav {
 
 .nav-menu a:hover:after {
   width: 100%;
+}
+
+.nav-portfolio-btn {
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .menu-toggle {

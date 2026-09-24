@@ -75,8 +75,7 @@ function PortfolioPage({ onBack }) {
     {
       title: "Sunset Dentistry",
       category: "Healthcare - Coming Soon",
-      description:
-        "Full website redesign for a dental practice in Los Angeles.",
+      description: "Full website redesign for a dental practice in Miami.",
       image: "./Dentist.jpg",
       url: "#",
     },
@@ -145,7 +144,7 @@ function PortfolioPage({ onBack }) {
               style={{ transformStyle: "preserve-3d" }}
             >
               <img
-                src="./headshot.jpg"
+                src="./headshot-full.jpg"
                 alt="Ricardo Payares"
                 className="portfolio-headshot"
               />
@@ -168,17 +167,19 @@ function PortfolioPage({ onBack }) {
                 Designer · USC MSIDT · NYC
               </p>
               <p className="portfolio-bio">
-                USC Master's student in Integrated Design, Business, and
+                USC Master's Alumnus in Integrated Design, Business, and
                 Technology. Former Software Engineer at Bloomberg LP, where I
                 built UI/UX components at scale bridging product thinking with
-                engineering execution. Designing digital experiences for
-                artists, musicians, and creators who deserve something more than
-                a template.
+                engineering execution. Now I work in bringing ideas to life,
+                from brand presence on the web to iPhone native social
+                platforms, I am to create impactful digital experiences that are
+                both functional and beautiful.
               </p>
               <p className="portfolio-bio">
-                My work lives at the intersection of tangible culture and
-                digital utility: generative art, analog tech innovation,
-                interactive web experiences, and more!
+                My work lives at the intersection of digital utility and
+                creative expression. From experimental idea to practical designs
+                with maximum impact, I enjoy every aspect that web design and
+                app developmnent has to offer.
               </p>
               <div className="portfolio-tags">
                 {[
@@ -279,24 +280,6 @@ function PortfolioPage({ onBack }) {
           >
             {[
               {
-                title: "Deadly Dining",
-                emoji: "🍽️",
-                stack: ["AVFoundation", "Party Game"],
-                description:
-                  "A game of secrets, suspicion, and betrayal. Each player takes turns picking an item to poison, then trying to avoid being poisoned themselves. A fun and suspenseful game for parties and gatherings.",
-                color: "#ff3366",
-                url: "https://github.com/rickypaya/Deadly-Dining",
-              },
-              {
-                title: "Disco",
-                emoji: "🌐",
-                stack: ["RealityKit", "Spotify API", "MusicBrainz API"],
-                description:
-                  "A global music discovery experience rendered on an interactive 3D globe. Explore new genres on their place of origin, and discover artists in those genres through custom spotify playlists.",
-                color: "#33ccff",
-                url: "https://github.com/rickypaya/Disco-Music",
-              },
-              {
                 title: "Sonex",
                 emoji: "🎧",
                 stack: [
@@ -308,7 +291,25 @@ function PortfolioPage({ onBack }) {
                 description:
                   "A real-time social collaging app for friends. Patch'd lets users co-edit boards, adding photos from their camera or library, cutouts from photos, or Patch'd's sticker library. Includes party mode for creative challenges and hidden previews to keep everyone on their toes.",
                 color: "#99ff00",
-                url: "https://github.com/rickypaya/PATCH-D",
+                url: "https://github.com/SonexApp/Sonex",
+              },
+              {
+                title: "Disco",
+                emoji: "🌐",
+                stack: ["RealityKit", "Spotify API", "MusicBrainz API"],
+                description:
+                  "A global music discovery experience rendered on an interactive 3D globe. Explore new genres on their place of origin, and discover artists in those genres through custom spotify playlists.",
+                color: "#33ccff",
+                url: "https://github.com/rickypaya/Disco-Music",
+              },
+              {
+                title: "Deadly Dining",
+                emoji: "🍽️",
+                stack: ["AVFoundation", "Party Game"],
+                description:
+                  "A game of secrets, suspicion, and betrayal. Each player takes turns picking an item to poison, then trying to avoid being poisoned themselves. A fun and suspenseful game for parties and gatherings.",
+                color: "#ff3366",
+                url: "https://github.com/rickypaya/Deadly-Dining",
               },
             ].map((project, index) => (
               <motion.a
@@ -509,6 +510,27 @@ function App() {
                     </motion.a>
                   </motion.li>
                 ))}
+                <motion.li
+                  variants={{
+                    open: { opacity: 1, y: 0 },
+                    closed: { opacity: 1, y: 0 },
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <motion.button
+                    className="btn btn-primary nav-portfolio-btn"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setPage("portfolio");
+                    }}
+                    whileHover={{
+                      boxShadow: "0 0 15px rgba(153, 255, 0, 0.4)",
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    View Portfolio
+                  </motion.button>
+                </motion.li>
               </motion.ul>
             </AnimatePresence>
           </nav>
@@ -529,7 +551,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Web Design for Visual &amp; Performing Artists
+              Web Design &amp; Platform Development
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -651,9 +673,9 @@ function App() {
               </motion.h2>
 
               {[
-                "We are a small interdisciplinary team of University of Southern California masters students helping resource-constrained independent creatives thrive through attractive, functional websites. Our solutions not only grow customer bases but also increase operational efficiency.",
-                "Our approach combines cutting-edge technology with user-centered design principles to deliver digital products that work seamlessly while providing exceptional user experiences. We believe good design and solid engineering are equally important in creating successful digital solutions.",
-                "Different businesses have different needs, and we're here to understand those needs and help you find the right solution. Working with our interdisciplinary team means we all collaborate toward the same goal: creating products that are functional, beautiful, and easy to use for your specific business.",
+                "University of Southern California masters student helping resource-constrained independent creatives and businesses thrive through attractive, functional websites. These solutions not only grow customer bases but also increase operational efficiency.",
+                "This approach combines cutting-edge technology with user-centered design principles to deliver digital products that work seamlessly while providing exceptional user experiences. Good design and solid engineering are equally important in creating successful digital solutions.",
+                "Different businesses have different needs, and we're here to understand those needs and help you find the right solution. Working with our interdisciplinary approach means we collaborate toward the same goal: creating products that are functional, beautiful, and easy to use for your specific business.",
               ].map((text, index) => (
                 <motion.p
                   key={index}
@@ -680,7 +702,7 @@ function App() {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View Our Portfolio →
+                View Portfolio →
               </motion.button>
             </motion.div>
           </motion.div>
