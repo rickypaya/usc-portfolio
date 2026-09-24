@@ -270,17 +270,21 @@ nav {
 .hero-content {
   flex: 1;
   max-width: 600px;
+  min-width: 0;
 }
 
 .hero-content h1 {
   color: var(--secondary-color);
   margin-bottom: 1.5rem;
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 7vw, 3rem);
   letter-spacing: -0.03em;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero-content p {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2.6vw, 0.95rem);
+  overflow-wrap: break-word;
   margin-bottom: 2rem;
   color: var(--secondary-color);
   opacity: 0.85;
@@ -1277,11 +1281,12 @@ footer {
   }
 
   .hero-content {
-    margin-bottom: 40px;
+    width: 100%;
+    margin: 0 auto 40px;
   }
   .hero-content h1 {
     margin-top: 60px;
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
   }
   .hero-content .btn {
     margin-bottom: 30px;
@@ -1396,6 +1401,14 @@ footer {
   }
   section {
     padding: 60px 0;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.5rem, 8vw, 1.9rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero-content p {
+    line-height: 1.7;
   }
   .portfolio-photo-frame {
     width: 220px;
