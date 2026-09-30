@@ -66,17 +66,24 @@ function PortfolioPage({ onBack }) {
   const paidWork = [
     {
       title: "Affinity Psychiatric",
-      category: "Healthcare",
+      category: "Psychiatric Practice",
       description:
         "Single-page marketing site for new psychiatric practice in Miami.",
-      image: "./Psych.jpg",
+      image: "./Psych2.jpg",
       url: "https://affinitypsychiatric.net/",
     },
     {
       title: "Sunset Dentistry",
-      category: "Healthcare - Coming Soon",
+      category: "Dental Practice",
       description: "Full website redesign for a dental practice in Miami.",
-      image: "./Dentist.jpg",
+      image: "./Dentist2.jpg",
+      url: "#",
+    },
+    {
+      title: "Studio LV",
+      category: "Vocal Coaching",
+      description: "Portfolio and vocal coaching site for a singer.",
+      image: "./Theater Stage Photo.jpg",
       url: "#",
     },
   ];
