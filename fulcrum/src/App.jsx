@@ -63,6 +63,15 @@ const AnimatedSection = ({ children, variants = fadeInUp, delay = 0 }) => {
 
 // ===== PORTFOLIO PAGE =====
 function PortfolioPage({ onBack }) {
+  const [privacyApp, setPrivacyApp] = useState(null);
+
+  useEffect(() => {
+    if (!privacyApp) return;
+    const onKey = (e) => e.key === "Escape" && setPrivacyApp(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [privacyApp]);
+
   const paidWork = [
     {
       title: "Affinity Psychiatric",
@@ -317,6 +326,7 @@ function PortfolioPage({ onBack }) {
                   "A game of secrets, suspicion, and betrayal. Each player takes turns picking an item to poison, then trying to avoid being poisoned themselves. A fun and suspenseful game for parties and gatherings.",
                 color: "#ff3366",
                 url: "https://github.com/rickypaya/Deadly-Dining",
+                privacy: true,
               },
             ].map((project, index) => (
               <motion.a
@@ -341,12 +351,85 @@ function PortfolioPage({ onBack }) {
                 </div>
                 <h3 className="ios-card-title">{project.title}</h3>
                 <p className="ios-card-desc">{project.description}</p>
+                {project.privacy && (
+                  <span
+                    className="ios-privacy-link"
+                    role="button"
+                    tabIndex={0}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setPrivacyApp(project.title);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setPrivacyApp(project.title);
+                      }
+                    }}
+                  >
+                    Privacy Policy
+                  </span>
+                )}
                 <div className="ios-card-line" />
               </motion.a>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* Privacy Policy Modal */}
+      <AnimatePresence>
+        {privacyApp && (
+          <motion.div
+            className="privacy-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setPrivacyApp(null)}
+          >
+            <motion.div
+              className="privacy-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="privacy-title"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="privacy-close"
+                aria-label="Close privacy policy"
+                onClick={() => setPrivacyApp(null)}
+              >
+                &times;
+              </button>
+              <span className="label-tag">// PRIVACY POLICY</span>
+              <h3 id="privacy-title" className="privacy-title">
+                {privacyApp}
+              </h3>
+              <p className="privacy-updated">Last updated: October 1, 2026</p>
+              <p>
+                {privacyApp} does not collect, store, or share any personal
+                information. The app has no accounts, no analytics, no
+                advertising, and no third-party tracking.
+              </p>
+              <p>
+                All gameplay happens locally on your device. Nothing you do in
+                the app is sent to us or to anyone else.
+              </p>
+              <p>
+                If this policy ever changes, the update will be posted here.
+                Questions can be sent to{" "}
+                <a href="mailto:info@payares-dev.com">info@payares-dev.com</a>.
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Artistic / p5.js Section */}
       <section className="portfolio-section artistic-section">
